@@ -1,7 +1,10 @@
 # Exp-6-Synchornous-counters - up counter and down counter 
-### AIM: To implement 4 bit up and down counters and validate  functionality.
-### HARDWARE REQUIRED:  – PC, Cyclone II , USB flasher
-### SOFTWARE REQUIRED:   Quartus prime
+### AIM:
+To implement 4 bit up and down counters and validate  functionality.
+### HARDWARE REQUIRED:
+– PC, Cyclone II , USB flasher
+### SOFTWARE REQUIRED:  
+Quartus prime
 ### THEORY 
 
 ## UP COUNTER 
@@ -46,81 +49,88 @@ This type of counter is normally referred to as a Down Counter, (CTD). In a bina
 
 4-bit Count Down Counter
 ### Procedure
-### STEP:1
-Create a new project in Quartus|| Software.
+```
+1.Create a new project in QuartusII software.
+2.Name the project as uc for upcounter and dc for down counter.
+3.Create a new verilog hdl file in the project file.
+4.Name the module as dc and uc for down counter and up counter.
+5.Within the module declare input and output variables.
+6.Create a loop using if-else with condition parameter as reset value.
+7.End the loop.
+8.End the module.
+```
 
-### STEP:2
-Name the project as upc and downc for up and down counter.
 
-### STEP:3
-Create a new verilog hdl file in the project file.
-
-### STEP:4
-Within that file write the program for up and down counter.
-
-### STEP:5
-After that run the program and give the clock pulse value as 50 in timing diagram and run the program.
 
 ### PROGRAM 
 ```
 Program for flipflops  and verify its truth table in quartus using Verilog programming.
-Developed by:Aadheeshwar.A
-RegisterNumber:212221230001
+Developed by: Aadheeshwar.A
+RegisterNumber: 212221230001
 ```
-### UP COUNTER:
+#### UP COUNTER:
 ```
-module upcounter(clk,A);
+module upcounter(clk,a);
 input clk;
-output reg[0:3]A;
+output reg[3:0]a;
 always@(posedge clk)
 begin
-		A[0]=((((A[1])&(A[2]))&A[3])^A[0]);
-		A[1]=(((A[2])&(A[3]))^A[1]);
-		A[2]=((A[3])^A[2]);
-		A[3]=1^A[3];
+a[3]=(a[2] & a[1] & a[0]) ^ a[3];
+a[2]=(a[1] & a[0]) ^ a[2];
+a[1]=(a[0] ^ a[1]);
+a[0]=1 ^ a[0];
 end
 endmodule
 ```
-### DOWN COUNTER:
+#### DOWN COUNTER:
 ```
-module downcounter(clk,A);
+module downcounter(clk,a);
 input clk;
-output reg[0:3]A;
+output reg[3:0]a;
 always@(posedge clk)
 begin
-	A[0]=((((~A[1])&(~A[2]))&A[3])^A[0]);
-	A[1]=(((A[2])&(A[3]))^A[1]);
-	A[2]=((A[3])^A[2]);
-	A[3]=1^A[3];
+a[3]=(~a[2] & ~a[1] & ~a[0])^ a[3];
+a[2]=(~a[1] & ~a[0]) ^ a[2];
+a[1]=(~a[0] ^ a[1]);
+a[0]=1 ^ a[0];
 end
 endmodule
 ```
+
 ### RTL LOGIC UP COUNTER AND DOWN COUNTER  
-### UP COUNTER:
+#### UP COUNTER:
+![image](https://github.com/Vineesh-AI-DS/Exp-7-Synchornous-counters-/assets/93427254/2c9e5b35-640f-4b51-a338-1257b0225444)
 
-![image](https://github.com/PreethiArunachalam/Exp-7-Synchornous-counters-/assets/120115840/c41ca1ad-c3be-4c81-aa2d-a6ee998ab0d3)
 
-### DOWN COUNTER:
 
-![image](https://github.com/PreethiArunachalam/Exp-7-Synchornous-counters-/assets/120115840/dd777a04-34f2-4ddd-98ff-5a15aacff8fa)
+#### DOWN COUNTER:
+![image](https://github.com/Vineesh-AI-DS/Exp-7-Synchornous-counters-/assets/93427254/c216fe7e-bf7b-4aba-89a8-8ba0791ddf30)
+
 
 ### TIMING DIGRAMS FOR COUNTER  
-### UP COUNTER:
+#### UP COUNTER:
+![image](https://github.com/Vineesh-AI-DS/Exp-7-Synchornous-counters-/assets/93427254/5a036e6e-2d44-4381-a448-4ab6aa9cb768)
 
-![image](https://github.com/PreethiArunachalam/Exp-7-Synchornous-counters-/assets/120115840/b7ec884c-af2d-42e5-bd06-64d5d582bbbf)
 
-### DOWN COUNTER:
+#### DOWN COUNTER:
 
-![image](https://github.com/PreethiArunachalam/Exp-7-Synchornous-counters-/assets/120115840/4baf7792-c9e9-4c2a-8520-d0aa87c6f429)
+![image](https://github.com/Vineesh-AI-DS/Exp-7-Synchornous-counters-/assets/93427254/bd5bf619-4ffd-4e0f-adee-2e1113f28b66)
+
 
 ### TRUTH TABLE 
-### UP COUNTER:
 
-![image](https://github.com/PreethiArunachalam/Exp-7-Synchornous-counters-/assets/120115840/f2809b22-18e9-4e17-a0df-23a5b63db646)
+#### UP COUNTER:
 
-### DOWN COUNTER:
+![image](https://github.com/Vineesh-AI-DS/Exp-7-Synchornous-counters-/assets/93427254/7a81a71c-0da6-4e4c-b211-e80894c01208)
 
-![image](https://github.com/PreethiArunachalam/Exp-7-Synchornous-counters-/assets/120115840/395abbf7-0135-45f3-8499-51594445dc35)
 
-### RESULTS 
+
+#### DOWN COUNTER:
+
+![deeee](https://github.com/Vineesh-AI-DS/Exp-7-Synchornous-counters-/assets/93427254/0e355822-21c9-471a-8990-82f75edc2feb)
+
+
+
+
+### RESULTS:
 Thus Synchornous counters up counter and down counter circuit are studied and the truth table for different logic gates are verified.
